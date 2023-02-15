@@ -30,7 +30,7 @@
         <div class="  d-none  col-lg-10  d-lg-inline      ">
           <ul class="nav justify-content-end  ">
             <li class="nav-item">
-              <a class="nav-link active" href="./index.html">HOME</a>
+              <a class="nav-link " href="./index.html">HOME</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./upcomingEvents.html">UPCOMING EVENTS</a>
@@ -39,7 +39,7 @@
               <a class="nav-link  " href="./pastEvents.html">PAST EVENTS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  " href="./contact.html">CONTACT</a>
+              <a class="nav-link  active" href="./contact.html">CONTACT</a>
             </li>
             <li class="nav-item">
               <a class="nav-link  " href="./stats.html">STATS</a>
@@ -64,19 +64,19 @@
 
               <ul class="nav justify-content-center flex-column">
                 <li class="nav-item">
-                  <a class="nav-link active" href="./index.html">HOME</a>
+                  <a class="nav-link m-2 link-light" href="./index.html">HOME</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./upcomingEvents.html">UPCOMING EVENTS</a>
+                  <a class="nav-link m-2 link-light" href="./upcomingEvents.html">UPCOMING EVENTS</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link  " href="./pastEvents.html">PAST EVENTS</a>
+                  <a class="nav-link  m-2 link-light" href="./pastEvents.html">PAST EVENTS</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link  " href="./contact.html">CONTACT</a>
+                  <a class="nav-link active m-2 link-light " href="./contact.html">CONTACT</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link  " href="./stats.html">STATS</a>
+                  <a class="nav-link m-2 link-light" href="./stats.html">STATS</a>
                 </li>
               </ul>
             </div>
@@ -108,11 +108,31 @@
     </div>
   </header>
   <main>
+    <div class="container border bg-light p-3 shadow m-auto">
+
+      <form>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="name" name="name">        
+        </div>
+        <div class="mb-3">
+          <label for="mail" class="form-label">Mail:</label>
+          <input type="mail" class="form-control" id="mail" name="mail">
+        </div>
+        <div class="mb-3"> 
+          <label for="comentarios" class="form-label">Mensagger:</label>
+          <textarea class="form-control" rows="5" id="mensagger" name="mensagger"></textarea>
+        </div> 
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>      
+  
+    </div> 
+  
 
   </main>
   <footer>
     <!-- place footer here -->
-    <div class="container pt-4 pb-3 bg-dark">
+    <div class="container pt-4 pb-3 bg-dark mt-4">
       <div class="row justify-content-center align-items-center g-2  d-flex d-inline">
         <div class="col">
           <div class="social   d-inline ">
