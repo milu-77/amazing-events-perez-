@@ -84,3 +84,32 @@ th{
     background-color: #f1378e;
     color:#1c1c1c
 }
+.Food{
+    background-color: #ffca99 !important;
+    font-weight: 700;
+ }
+.Museum{
+    background-color: #77dd77 !important;
+    font-weight: 700;
+ }
+.Costume{
+    background-color: #fdfd96 !important;
+    font-weight: 700;
+     
+}
+.Music{
+    background-color: #84b6f4 !important;
+    font-weight: 700;
+}
+.Race{
+    background-color: #fdcae1 !important;
+    font-weight: 700;
+}
+.Book{
+    background-color: #ff6961 !important;
+    font-weight: 700;
+}
+.Cinema{
+    background-color: #e79eff !important;
+    font-weight: 700;
+}

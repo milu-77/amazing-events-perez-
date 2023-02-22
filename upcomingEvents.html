@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body onload="UpcomingEvents()">
   <header>
     <!-- place navbar here -->
     <div class="container   ">
@@ -155,115 +155,9 @@
     </div>
     <!-- card  -->
     <div class="container ">
-      <div class="row justify-content-center align-items-center g-2 d-flex row-card ">
-        <div class="col-12 col-sm-6 col-md-4    ">
-          <div class="card shadow m-1">
-            <div class="box-img">
-              <img class="card-img-top " alt="cinema" src="./assets/img/Cinema.jpg">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">Cinema</h4>
-              <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus
-                sem,
-                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                nec tortor sit amet, maximus mattis dui. </p>
-            </div>
-            <div class="card-footer d-flex  ">
-              <h6 class="price"> Price: 8.000$</h6>
-              <a href="#" class="btn btn-primary  ">Enter</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4   ">
-          <div class="card shadow m-1">
-            <div class="box-img">
-              <img class="card-img-top" alt="Costume_Party" src="./assets/img/Costume_Party.jpg">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">Costume Party</h4>
-              <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus
-                sem,
-                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                nec tortor sit amet, maximus mattis dui. </p>
-            </div>
-            <div class="card-footer d-flex  ">
-              <h6 class="price"> Price: 3.000 $</h6>
-              <a href="#" class="btn btn-primary  ">Enter</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4    ">
-          <div class="card shadow m-1">
-            <div class="box-img">
-              <img class="card-img-top" alt="Food_Fair" src="./assets/img/Food_Fair.jpg">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">Food Fair</h4>
-              <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus
-                sem,
-                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                nec tortor sit amet, maximus mattis dui. </p>
-            </div>
-            <div class="card-footer d-flex  ">
-              <h6 class="price"> Price: 4.000 $ </h6>
-              <a href="#" class="btn btn-primary  ">Enter</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4    ">
-          <div class="card shadow m-1">
-            <div class="box-img">
-              <img class="card-img-top" alt="Marathon" src="./assets/img/Marathon.jpg">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">Marathon</h4>
-              <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus
-                sem,
-                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                nec tortor sit amet, maximus mattis dui. </p>
-            </div>
-            <div class="card-footer d-flex  ">
-              <h6 class="price"> Price: </h6>
-              <a href="#" class="btn btn-primary  ">Enter</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4    ">
-          <div class="card shadow m-1">
-            <div class="box-img">
-              <img class="card-img-top" alt="Museum Tour" src="./assets/img/Museum_Tour.jpg">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">Museum Tour</h4>
-              <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus
-                sem,
-                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                nec tortor sit amet, maximus mattis dui. </p>
-            </div>
-            <div class="card-footer d-flex  ">
-              <h6 class="price"> Price: </h6>
-              <a href="#" class="btn btn-primary  ">Enter</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4    ">
-          <div class="card shadow m-1 ">
-            <div class="box-img">
-              <img class="card-img-top" alt="Music Concert" src="./assets/img/Music_Concert.jpg">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">Music Concert</h4>
-              <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus
-                sem,
-                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                nec tortor sit amet, maximus mattis dui. </p>
-            </div>
-            <div class="card-footer d-flex  ">
-              <h6 class="price"> Price: </h6>
-              <a href="#" class="btn btn-primary  ">Enter</a>
-            </div>
-          </div>
-        </div>
+      <div class="row justify-content-center align-items-center g-2 d-flex row-card "   id="rows">
+
+        
       </div>
     </div>
   </main>
@@ -284,6 +178,7 @@
     </div>
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
+  <script src="./assets/js/card.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
