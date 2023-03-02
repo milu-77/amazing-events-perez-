@@ -1,5 +1,4 @@
 function allDate() {
-    //fetch('./data.json')
     fetch('./data.json')
         .then((response) => response.json())
         .then((json) => {
@@ -26,6 +25,17 @@ function allDate() {
             }
             console.log(cards);
             body.innerHTML=cards;
+        });
+}
+
+function filter(){
+    console.log("funciona?");
+    fetch('./data.json')
+        .then((response) => response.json())
+        .then((json) => {
+            var events = json.events.filter(even=> even.category=="Food" ||even.category=="Museum"  );
+
+            console.log(events);
         });
 }
 
