@@ -109,77 +109,64 @@
   </header>
 
   <main class="container">
-    <!-- buscador -->
-    <div class="container  mb-3 d-flex  justify-content-center border bg-light  shadow pe-0 ps-0 pb-1 pt-1">
-      <div class="row  d-flex align-items-center">
-        <form class=" d-flex align-items-center p-0 ">
-          <div class="d-flex align-items-center pe-2">
-            <div class="form-check form-check-inline d-flex align-items-center  me-2">
-              <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox1" name="checkbox1">
-              <label class="form-check-label" for="checkbox1">
-                Food Fair
+    
+    <!-- search -->
+
+    <div class="container container-fluid  mb-3 d-flex  justify-content-center border bg-light  shadow pe-0 ps-0 pb-1 pt-1">
+        <form class="row  container-fluid d-flex align-items-center  pe-2 " id ="form-search">
+            <!-- <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline       ">
+              <input class="form-check-input me-1 mb-1 " type="checkbox" value="food" id="food" name="food">
+              <label class="form-check-label" for="food">
+                Food
               </label>
             </div>
-            <div class="form-check form-check-inline d-flex align-items-center me-2">
-              <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox2" name="checkbox2">
-              <label class="form-check-label" for="checkbox2">
-                Museum Tour
+            <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline     ">
+              <input class="form-check-input me-1 mb-1 " type="checkbox" value="museum" id="museum" name="museum">
+              <label class="form-check-label" for="museum">
+                Museum
               </label>
             </div>
-            <div class="form-check form-check-inline d-flex align-items-center me-2">
-              <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox3" name="checkbox3">
-              <label class="form-check-label" for="checkbox3">
-                Costume Party
+            <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline       ">
+              <input class="form-check-input me-1 mb-1 " type="checkbox" value="party" id="party" name="party">
+              <label class="form-check-label" for="party">
+               Party
               </label>
             </div>
-            <div class="form-check form-check-inline d-flex align-items-center me-2">
-              <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox4" name="checkbox4">
-              <label class="form-check-label" for="checkbox4">
-                Music Concert
+            <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline    " >
+              <input class="form-check-input me-1 mb-1 " type="checkbox" value="concert" id="concert" name="concert">
+              <label class="form-check-label" for="concert">
+                Concert
               </label>
             </div>
-            <div class="form-check form-check-inline d-flex align-items-center me-2">
-              <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox5" name="checkbox5">
-              <label class="form-check-label" for="checkbox5">
+            <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline      ">
+              <input class="form-check-input me-1 mb-1 " type="checkbox" value="race" id="race" name="race">
+              <label class="form-check-label" for="race">
                 Race
               </label>
             </div>
-            <div class="form-check form-check-inline d-flex align-items-center me-2 ">
-              <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox6" name="checkbox5">
-              <label class="form-check-label" for="checkbox5">
-                Book Exchange
+            <div class=" col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline    ">
+              <input class="form-check-input me-1 mb-1 " type="checkbox" value="books" id="books" name="books">
+              <label class="form-check-label" for="books">
+                Book
               </label>
             </div>
-            <div class="form-check form-check-inline d-flex align-items-center me-2 border-1 border-dark">
-              <input class="form-check-input  me-1 mb-1" type="checkbox" value="" id="checkbox7" name="checkbox5">
-              <label class="form-check-label" for="checkbox5">
+            <div class=" col-3 col-sm-5 col-md-2  col-lg-1 form-check form-check-inline       ">
+              <input class="form-check-input  me-1 mb-1" type="checkbox" value="cinema" id="cinema" name="cinema">
+              <label class="form-check-label" for="cinema">
                 Cinema
               </label>
             </div>
-
-          </div>
-
-          <div class="search  d-flex ps-5 ">
-            <div class="form-check-inline  me-1">
-              <input type="search" id="form1" class="form-control" placeholder="search" />
-            </div>
-            <div class="form-check-inline  m-0">
-              <button type="button" class="btn btn-primary  m-0">
-                <i class="bi bi-search" onclick="filter()"></i>
-              </button>
-            </div>
-
-          </div>
-
+            <div class="col-8 col-sm-8  col-md-7  col-lg-3 align-self-end  form-check-inline  flex-grow-1  ">
+              <input type="search" id="search" class="form-control" placeholder="search" />
+            </div> -->
         </form>
       </div>
-    </div>
 
 
 
     <!-- card  -->
     <div class="container ">
-      <div class="row justify-content-center align-items-center g-2 d-flex row-card "   id="rows">
+      <div class="row justify-content-center align-items-center g-2 d-flex row-card " id="rows">
 
       </div>
     </div>
@@ -191,13 +178,15 @@
         <div class="col">
           <div class="social   d-inline ">
             <a href="http://instagram.com"><i class="bi bi-instagram"></i></a>
-             <a href="http://instagram.com"><i class="bi bi-facebook"></i></a>
-             <a href="http://instagram.com"><i class="bi bi-whatsapp"></i></a>
+            <a href="http://instagram.com"><i class="bi bi-facebook"></i></a>
+            <a href="http://instagram.com"><i class="bi bi-whatsapp"></i></a>
           </div>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+          <h4>cohort</h4>
+        </div>
       </div>
-      <div class="col"></div>
-      <div class="col"><h4>cohort</h4></div>
-     </div>
     </div>
   </footer>
   <!-- Bootstrap JavaScript Libraries -->

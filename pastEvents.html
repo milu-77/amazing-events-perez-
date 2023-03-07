@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body onload="PastEvents()" >
+<body onload="pastEvents()" >
   <header class="mb-3">
     <!-- place navbar here -->
     <div class="container   ">
@@ -106,62 +106,56 @@
     </div>
   </header>
   <main class="container">
-    <!-- buscador -->
-    <div class="container  mb-3 d-flex  justify-content-center border bg-light  shadow">
-      <div class="row  d-flex align-items-center">
-        <form class=" d-flex align-items-center p-0 ">
-          <div class="form-check form-check-inline d-flex align-items-center  me-2">
-            <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox1" name="checkbox1">
+    <!-- search -->
+    
+    <div class="container container-fluid  mb-3 d-flex  justify-content-center border bg-light  shadow pe-0 ps-0 pb-1 pt-1">
+      <form class="row  container-fluid d-flex align-items-center    pe-2  " id ="form-search">
+          <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline       ">
+            <input class="form-check-input me-1 mb-1 " type="checkbox" value="food" id="food" name="checkbox1">
             <label class="form-check-label" for="checkbox1">
-              Food Fair
+              Food
             </label>
           </div>
-          <div class="form-check form-check-inline d-flex align-items-center me-2">
-            <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox2" name="checkbox2">
+          <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline     ">
+            <input class="form-check-input me-1 mb-1 " type="checkbox" value="museum" id="museum" name="checkbox2">
             <label class="form-check-label" for="checkbox2">
-              Museum Tour
+              Museum
             </label>
           </div>
-          <div class="form-check form-check-inline d-flex align-items-center me-2">
-            <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox3" name="checkbox3">
+          <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline       ">
+            <input class="form-check-input me-1 mb-1 " type="checkbox" value="party" id="party" name="checkbox3">
             <label class="form-check-label" for="checkbox3">
-              Costume Party
+             Party
             </label>
           </div>
-          <div class="form-check form-check-inline d-flex align-items-center me-2">
-            <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox4" name="checkbox4">
+          <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline    " >
+            <input class="form-check-input me-1 mb-1 " type="checkbox" value="concert" id="concert" name="checkbox4">
             <label class="form-check-label" for="checkbox4">
-              Music Concert
+              Concert
             </label>
           </div>
-          <div class="form-check form-check-inline d-flex align-items-center me-2">
-            <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox5" name="checkbox5">
+          <div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline      ">
+            <input class="form-check-input me-1 mb-1 " type="checkbox" value="race" id="race" name="checkbox5">
             <label class="form-check-label" for="checkbox5">
               Race
             </label>
           </div>
-          <div class="form-check form-check-inline d-flex align-items-center me-2 ">
-            <input class="form-check-input me-1 mb-1 " type="checkbox" value="" id="checkbox6" name="checkbox5">
+          <div class=" col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline    ">
+            <input class="form-check-input me-1 mb-1 " type="checkbox" value="books" id="books" name="checkbox5">
             <label class="form-check-label" for="checkbox5">
-              Book Exchange
+              Book
             </label>
           </div>
-          <div class="form-check form-check-inline d-flex align-items-center me-2 border-1 border-dark">
-            <input class="form-check-input  me-1 mb-1" type="checkbox" value="" id="checkbox7" name="checkbox5">
-            <label class="form-check-label" for="checkbox5">
+          <div class=" col-3 col-sm-5 col-md-2  col-lg-1 form-check form-check-inline       ">
+            <input class="form-check-input  me-1 mb-1" type="checkbox" value="cinema" id="cinema" name="cinema">
+            <label class="form-check-label" for="cinema">
               Cinema
             </label>
           </div>
-          <div class="form-check-inline">
-            <input type="search" id="form1" class="form-control" placeholder="search" />
+          <div class="col-8 col-sm-8  col-md-7  col-lg-3 align-self-end  form-check-inline  flex-grow-1  ">
+            <input type="search" id="search" class="form-control" placeholder="search" />
           </div>
-          <div class="form-check-inline ">
-            <button type="button" class="btn btn-primary">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
     <!-- card  -->
     <div class="container ">
