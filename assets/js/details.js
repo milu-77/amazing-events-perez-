@@ -6,7 +6,7 @@ const id = param.get('id')
 console.log(id);
 
 function RandomEvents(){
-    fetch('./data.json')
+    fetch('../data.json')
     .then((response) => response.json())
     .then((json) => {
         var cards = "";

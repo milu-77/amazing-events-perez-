@@ -128,3 +128,14 @@ background-color: #D90469;
     object-fit:contain;
     width: 100%;
  }
+ #empty-search{
+    display: none;
+ }
+ .error{
+    height:auto;
+
+ }
+ .card-img{
+    object-fit: contain;
+    max-height: 20em;
+ }
