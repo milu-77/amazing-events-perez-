@@ -12,7 +12,7 @@ let books = document.getElementById("books");
 let party = document.getElementById("party");
 let race = document.getElementById("race");
 let search = document.getElementById("search");
-
+allDate();
 /**
  * TODO: Funciones de busqueda por texto
  */
@@ -122,8 +122,8 @@ function pushCardView(obj) {
 /**
  * TODO: Prepara informacion (carga al inicio de la pagina por unica vez )
  */
-function allDate() {
-  fetch("./data.json")
+async function allDate() {
+  fetch("https://mindhub-xj03.onrender.com/api/amazing")
     .then((response) => response.json())
     .then((json) => {
       pushCard(json.events);

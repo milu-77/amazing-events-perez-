@@ -12,6 +12,7 @@ let books = document.getElementById("books");
 let party = document.getElementById("party");
 let race = document.getElementById("race");
 let search = document.getElementById("search");
+pastEvents();
 
 /**
  * TODO: Funciones de busqueda por texto
@@ -121,8 +122,8 @@ function pushCardView(obj) {
 /**
  * TODO: Prepara informacion (carga al inicio de la pagina por unica vez )
  */
-function pastEvents() {
-  fetch("../data.json")
+async function pastEvents() {
+  fetch("https://mindhub-xj03.onrender.com/api/amazing")
     .then((response) => response.json())
     .then((json) => {
       let cardView2 = json.events.filter(
