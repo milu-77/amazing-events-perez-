@@ -74,11 +74,15 @@ td{
 th{
     height: 2.5em;
     border: #1c1c1c solid 1px;
+    border-spacing:1em;
 }
 .table{
-    box-shadow: 0 1.5rem 1rem rgb(0, 0, 0)  ;
+    /* box-shadow: 0 1.5rem 1rem rgb(0, 0, 0)  ; */
     margin-top: 1em;
     margin-bottom: 5em;
+    border-collapse: separate;
+    border-spacing: 0.5em 0.5em;
+
 }
 .active{
     background-color: #f1378e;
@@ -138,4 +142,10 @@ background-color: #D90469;
  .card-img{
     object-fit: contain;
     max-height: 20em;
+ }
+ .text-warning{
+    color:#6f42c1 !important;
+ }
+ .bg-warning{
+    background-color: #6f42c1 !important;
  }

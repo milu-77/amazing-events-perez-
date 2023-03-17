@@ -128,13 +128,15 @@ async function upcomingEvents() {
     .then((response) => response.json())
     .then((json) => {
       let cardView2 = json.events.filter(
-        (card) => dateCreate(card.date) >= dateCreate(json.currentDate)
+        (card) =>  card.date  >=  json.currentDate 
       );
       pushCard(cardView2);
       cardView2.forEach((element) => {
         categoryCreate(element.category);
       });
+
       renderCard(cardDate);
+      console.log(cardDate);
       categoryView();
       iniciarVariables();
     });
