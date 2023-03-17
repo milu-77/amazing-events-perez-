@@ -78,12 +78,14 @@ th{
 }
 .table{
     /* box-shadow: 0 1.5rem 1rem rgb(0, 0, 0)  ; */
-    margin-top: 1em;
-    margin-bottom: 5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     border-collapse: separate;
-    border-spacing: 0.5em 0.5em;
+    /* border-spacing: 0.5em 0.5em; */
 
+ 
 }
+ 
 .active{
     background-color: #f1378e;
     color:#1c1c1c
@@ -149,3 +151,11 @@ background-color: #D90469;
  .bg-warning{
     background-color: #6f42c1 !important;
  }
+ .progress{
+    height: 2em;
+    font-size: 1em;
+    --bs-progress-bg: #adb5bd;
+  }
+  .progress-bar {
+    background-color: #E23B89;
+  }
