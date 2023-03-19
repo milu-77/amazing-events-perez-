@@ -12,7 +12,11 @@ let books = document.getElementById("books");
 let party = document.getElementById("party");
 let race = document.getElementById("race");
 let search = document.getElementById("search");
+let mode = document.getElementById("mode");
+let modeView;
+testMode();
 pastEvents();
+
 
 /**
  * TODO: Funciones de busqueda por texto
@@ -201,6 +205,9 @@ function iniciarVariables() {
   party = document.getElementById("party");
   race = document.getElementById("race");
   search = document.getElementById("search");
+  mode.addEventListener("click",function(){
+    modeChange();
+});
 
    /**
    ** cinema variable
@@ -210,7 +217,7 @@ function iniciarVariables() {
       View(cinema);
     });
   } catch (TypeError) {
-    console.log("no event");
+    console.log("no event cinema");
   }
   /**
    ** food variable
@@ -220,7 +227,7 @@ function iniciarVariables() {
       View(food);
     });
   } catch (TypeError) {
-    console.log("no event");
+    console.log("no event food");
   }
   /**
    ** museum variable
@@ -230,7 +237,7 @@ function iniciarVariables() {
       View(museum);
     });
   } catch (TypeError) {
-    console.log("no event");
+    console.log("no event museum");
   }
   /**
    ** concert variable
@@ -240,7 +247,7 @@ function iniciarVariables() {
       View(concert);
     });
   } catch (TypeError) {
-    console.log("no event");
+    console.log("no event concert");
   }
   /**
    ** books variable
@@ -250,7 +257,7 @@ function iniciarVariables() {
       View(books);
     });
   } catch (TypeError) {
-    console.log("no event");
+    console.log("no event books");
   }
   /**
    ** party variable
@@ -260,7 +267,7 @@ function iniciarVariables() {
       View(party);
     });
   } catch (TypeError) {
-    console.log("no event");
+    console.log("no event party");
   }
   /**
    ** race variable
@@ -270,7 +277,7 @@ function iniciarVariables() {
       View(race);
     });
   } catch (TypeError) {
-    console.log("no event");
+    console.log("no event race");
   }
   /**
    * **input variable
@@ -285,15 +292,7 @@ function iniciarVariables() {
   });
 }
 
-/**
- * TODO: Convierte un string a date
- */
-function dateCreate(date) {
-  let year = date.substring(0, 4);
-  let month = date.substring(6, 7);
-  let day = date.substring(9, 10);
-  return new Date(year, month - 1, day);
-}
+ 
 /**
  * TODO: muestra carte de  busqueda vacia 
  */
@@ -308,4 +307,44 @@ function emptySearch() {
      </div>`;
 
   body.innerHTML = cardsFail;
+}
+
+function testMode(){
+  if (localStorage.getItem("mode")==null){
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    localStorage.setItem("mode", 0);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="dark"
+  }if (localStorage.getItem("mode")==1) {
+    mode.innerHTML = ` <span><i class="bi bi-brightness-high-fill lgth"></i></span>`;
+    localStorage.setItem("mode", 1);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="ligth";
+
+  } else {
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    localStorage.setItem("mode", 0);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="dark"
+  }
+console.log(localStorage.getItem("mode"));
+}
+function modeChange(){
+  if(modeView==1){
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    modeView=0;
+    localStorage.setItem("mode", 0);
+    let body= document.getElementById("modeColor");
+    body.className="dark";
+  }else{
+    mode.innerHTML = `<span> <i class="bi bi-brightness-high-fill lgth"></i></span>`; 
+    modeView=1;
+    localStorage.setItem("mode", 1);
+    let body= document.getElementById("modeColor");
+    body.className="ligth";
+  }
+  console.log(modeView);
 }

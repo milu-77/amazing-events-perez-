@@ -3,6 +3,9 @@ cardEstimate = [];
 capacidad = [];
 let setPast = [];
 let setUpcoming = [];
+let mode = document.getElementById("mode");
+let modeView;
+ testMode();
 
 stats();
 async function stats() {
@@ -51,6 +54,10 @@ async function stats() {
     setUpcoming.sort();
     renderStatistics();
     renderTotal();
+    mode.addEventListener("click",function(){
+      modeChange();
+  });
+
   }
   catch (err) {
     console.log(err);
@@ -59,23 +66,22 @@ async function stats() {
 
 function renderStatistics() {
   var body = document.getElementById("events");
-
   let cardsVieWInner = `
-        <tr class="  table-borderless bg-light bg-gradient ">
-        <th class="border-0    " scope="row">1</th>
-        <td class="border-0 ps-3 text-danger roundedr fs-6 ">${cardAssistance[0].name} </td>
-        <td class="border-0 pe-1 text-danger rounded text-end fs-6 "><b> ( ${((cardAssistance[0].assistance / cardAssistance[0].capacity) * 100).toFixed(2)} %) </b></td>
+        <tr class="  table-borderless   bg-gradient ">
+          <th class="border-0    " scope="row" id="ranking">1</th>
+          <td class="border-0 ps-3 text-danger roundedr fs-6 ">${cardAssistance[0].name} </td>
+          <td class="border-0 pe-1 text-danger rounded text-end fs-6 "><b> ( ${((cardAssistance[0].assistance / cardAssistance[0].capacity) * 100).toFixed(2)} %) </b></td>
 
-        <td class="border-0 ps-3 text-success rounded fs-6 ">${cardAssistance[cardAssistance.length - 1].name} </td>
-        <td class="border-0 pe-1 text-success rounded text-end fs-6 "> <b> ( ${((cardAssistance[cardAssistance.length - 1].assistance / cardAssistance[cardAssistance.length - 1].capacity) * 100).toFixed(2)} %)</b></td>
+          <td class="border-0 ps-3 text-success rounded fs-6 ">${cardAssistance[cardAssistance.length - 1].name} </td>
+          <td class="border-0 pe-1 text-success rounded text-end fs-6 "> <b> ( ${((cardAssistance[cardAssistance.length - 1].assistance / cardAssistance[cardAssistance.length - 1].capacity) * 100).toFixed(2)} %)</b></td>
 
-        <td class="border-0 ps-3 text-warning rounded fs-6 ">${capacidad[0].name}</td>
-        <td class="border-0 pe-1 text-warning rounded text-end fs-6 "><b> ( ${capacidad[0].capacity.toLocaleString('en-US')})</b></td>
+          <td class="border-0 ps-3 text-warning rounded fs-6 ">${capacidad[0].name}</td>
+          <td class="border-0 pe-1 text-warning rounded text-end fs-6 "><b> ( ${capacidad[0].capacity.toLocaleString('en-US')})</b></td>
 
-      </tr>
-      <tr class="  table-borderless     bg-gradient  ">
-        <th class="border-0" scope="row">2</th>
-        <td class="border-0 ps-3 text-danger rounded fs-6 ">${cardAssistance[1].name} </td>
+        </tr>
+      <tr class="  table-borderless     rounded   bg-gradient  ">
+        <th class="border-0" id="ranking" scope="row" >2</th>
+        <td class="border-0 rounded ps-3 text-danger rounded fs-6 ">${cardAssistance[1].name} </td>
         <td class="border-0 pe-1 text-danger rounded text-end fs-6 "><b> ( ${((cardAssistance[1].assistance / cardAssistance[1].capacity) * 100).toFixed(2)} %) </b></td>
 
         <td class="border-0 ps-3 text-success rounded fs-6 ">${cardAssistance[cardAssistance.length - 2].name} </td>
@@ -85,8 +91,8 @@ function renderStatistics() {
         <td class="border-0 pe-1 text-warning rounded text-end fs-6 " > <b> ( ${capacidad[1].capacity.toLocaleString('en-US')})</b></td>
 
       </tr>
-      <tr class=" table-borderless bg-light bg-gradient">
-        <th class="border-0 " scope="row">3</th>
+      <tr class=" table-borderless   bg-gradient">
+        <th class="border-0 " id="ranking" scope="row">3</th>
         <td class="border-0 ps-3 text-danger rounded fs-6  " >${cardAssistance[2].name}</td>
         <td class="border-0 pe-1 text-danger rounded text-end fs-6 "> <b> ( ${((cardAssistance[2].assistance / cardAssistance[2].capacity) * 100).toFixed(2)} %) </b></td>
 
@@ -111,37 +117,42 @@ function datePast(cat) {
       capacidad += element.capacity;
     }
   });
-  return `<tr class="  table-borderless bg-light bg-gradient ">
-   <td class="border-0 ps-3 text-danger roundedr text-center fs-6  ">${cat} </td>
-  <td class="border-0 ps-4 text-success rounded   text-center fs-6 ">$ ${ingresos.toLocaleString('en-US')}     </td>
-  <td class="border-0 ps-3 text-warning rounded text-center fs-6  ">
-  <div class="progress style="height: 25px;">
-  <div class="progress-bar " role="progressbar" style="width: ${((asistencia / capacidad) * 100).toFixed(2)}%;" aria-valuenow="((asistencia/capacidad )*100).toFixed(2) %" aria-valuemin="0" aria-valuemax="100">${((asistencia / capacidad) * 100).toFixed(2)} %</div>
-</div>
-</td>
+  return `
+  <tr class="  table-borderless   bg-gradient ">
+    <td class="border-0 ps-3 text-danger roundedr text-center fs-6  ">${cat} </td>
+    <td class="border-0 ps-4 text-success rounded   text-center fs-6 ">$ ${ingresos.toLocaleString('en-US')}     </td>
+    <td class="border-0 ps-3 text-warning rounded text-center fs-6  ">
+      <div class="progress style="height: 25px;">
+      <div class="progress-bar " role="progressbar" style="width: ${((asistencia / capacidad) * 100).toFixed(2)}%;" aria-valuenow="((asistencia/capacidad )*100).toFixed(2) %" aria-valuemin="0" aria-valuemax="100">${((asistencia / capacidad) * 100).toFixed(2)} %</div>
+      </div>
+      </td>
   </tr>`
 }
 
 function dateFuture(cat) {
-  var ingresos = 0;
-  var asistencia = 0;
-  var capacidad = 0;
+  let ingresos = 0;
+  let asistencia = 0;
+  let capacidad = 0;
+  let indice = 0;
+  let porcentajes =0;
   cardEstimate.forEach(element => {
     if (element.category == cat) {
       ingresos += element.estimate * element.price;
       asistencia += element.estimate;
       capacidad += element.capacity;
+     
     }
   });
-  return `<tr class="  table-borderless bg-light bg-gradient ">
+  return `
+  <tr class="  table-borderless   bg-gradient ">
    <td  class="border-0 ps-3 text-danger roundedr text-center fs-6 ">${cat} </td>
-  <td   class="border-0 ps-3 text-success rounded text-center fs-6 ">$ ${ingresos.toLocaleString('en-US')} </td>
-  <td   class="border-0 ps-3 text-warning rounded text-center fs-6 ">
-  <div  class="progress ">
-  <div  class="progress-bar " role="progressbar" style="width: ${((asistencia / capacidad) * 100).toFixed(2)}%;" aria-valuenow="((asistencia/capacidad )*100).toFixed(2) %" aria-valuemin="0" aria-valuemax="100">${((asistencia / capacidad) * 100).toFixed(2)} %</div>
-</div>
-  </td>
-</tr>`
+    <td   class="border-0 ps-3 text-success rounded text-center fs-6 ">$ ${ingresos.toLocaleString('en-US')} </td>
+    <td   class="border-0 ps-3 text-warning rounded text-center fs-6 ">
+      <div  class="progress ">
+      <div  class="progress-bar " role="progressbar" style="width: ${((asistencia / capacidad) * 100).toFixed(2)}%;" aria-valuenow="((asistencia/capacidad )*100).toFixed(2) %" aria-valuemin="0" aria-valuemax="100">${((asistencia / capacidad) * 100).toFixed(2)} %</div>
+      </div>
+    </td>
+  </tr>`
 }
 
 
@@ -162,6 +173,46 @@ function renderTotal() {
 
 
 
+}
+
+function testMode(){
+  if (localStorage.getItem("mode")==null){
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    localStorage.setItem("mode", 0);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="dark"
+  }if (localStorage.getItem("mode")==1) {
+    mode.innerHTML = ` <span><i class="bi bi-brightness-high-fill lgth"></i></span>`;
+    localStorage.setItem("mode", 1);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="ligth";
+
+  } else {
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    localStorage.setItem("mode", 0);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="dark"
+  }
+console.log(localStorage.getItem("mode"));
+}
+function modeChange(){
+  if(modeView==1){
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    modeView=0;
+    localStorage.setItem("mode", 0);
+    let body= document.getElementById("modeColor");
+    body.className="dark";
+  }else{
+    mode.innerHTML = `<span> <i class="bi bi-brightness-high-fill lgth"></i></span>`; 
+    modeView=1;
+    localStorage.setItem("mode", 1);
+    let body= document.getElementById("modeColor");
+    body.className="ligth";
+  }
+  console.log(modeView);
 }
 
 // function exportTableToExcel(tableID){

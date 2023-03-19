@@ -12,7 +12,10 @@ let books = document.getElementById("books");
 let party = document.getElementById("party");
 let race = document.getElementById("race");
 let search = document.getElementById("search");
+let mode = document.getElementById("mode");
+let modeView;
 allDate();
+testMode();
 /**
  * TODO: Funciones de busqueda por texto
  */
@@ -73,23 +76,37 @@ function renderCard(cardArray) {
   var body = document.getElementById("rows");
   let cardsVieWInner = "";
   for (card of cardArray) {
-    cardsVieWInner += `<div class="col-12 col-sm-6 col-md-4">
-        <div class=" card shadow m-1">
-        <div class="  box-img " style="background-image: url('${card.image}')" ><img class="card-img-top "  alt="${card.name}"
-        src="${card.image}"></div>
-        <div class="card-body">
-            <h4 class="card-title text-center mb-2 text-uppercase">${card.name}</h4>
-            <p class="card-text  m-4 d-flex align-content-center" >
-             <a class="card-text text-end btn rounded-pill border  shadow-sm    p-1 border-1 ${card.category}"
-                  >${card.category}</a>
-            <strong class="card-text fs-6 align-self-center flex-grow-1 text-end">${card.date}</strong></p>
-            <p class="card-text text-center  ">${card.description}</p>
-            </div>
-            <div class="card-footer d-flex">
-            <h6 class="price m-0">${card.price} $</h6><a class="btn btn-primary  " href="./page/details.html?id=${card._id}"> More Info</a>
+    cardsVieWInner += `
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class=" card shadow m-1">
+          <div class="  box-img " style="background-image: url('${card.image}')" >
+            <img class="card-img-top "  alt="${card.name}" src="${card.image}">
+          </div>
+          <div class="card-body">
+              <h4 class="card-title text-center mb-2 text-uppercase">${card.name}
+              </h4>
+              <p class="card-text  m-4 d-flex align-content-center" >
+                <a class="card-text text-end btn rounded-pill border  shadow-sm    p-1 border-1 ${card.category}">
+                  ${card.category}
+                </a>
+                <strong class="card-text fs-6 align-self-center flex-grow-1 text-end">
+                  ${card.date}
+                </strong>
+              </p>
+              <p class="card-text text-center">
+                ${card.description}
+              </p>
+          </div>
+        <div class="card-footer d-flex">
+          <h6 class="price m-0">${card.price} $
+          </h6>
+          <a class="btn btn-primary  " href="./page/details.html?id=${card._id}"> 
+            More Info
+          </a>
         </div>
-        </div>
-        </div>`;
+      </div>
+    </div>
+    `;
   }
   body.innerHTML = cardsVieWInner;
 }
@@ -212,6 +229,12 @@ function iniciarVariables() {
   race.addEventListener("click", function () {
     View(race);
   });
+  mode.addEventListener("click",function(){
+      modeChange();
+  });
+
+
+
   search.addEventListener("input", searchCards);
   search.addEventListener("keydown", (evento) => {
     if (evento.key == "Enter") {
@@ -236,3 +259,45 @@ function emptySearch() {
      </div>`;
   body.innerHTML = cardsFail;
 }
+function testMode(){
+  if (localStorage.getItem("mode")==null){
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    localStorage.setItem("mode", 0);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="dark"
+  }if (localStorage.getItem("mode")==1) {
+    mode.innerHTML = ` <span><i class="bi bi-brightness-high-fill lgth"></i></span>`;
+    localStorage.setItem("mode", 1);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="ligth";
+
+  } else {
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    localStorage.setItem("mode", 0);
+     modeView=localStorage.getItem("mode");
+     let body= document.getElementById("modeColor");
+     body.className="dark"
+  }
+console.log(localStorage.getItem("mode"));
+}
+function modeChange(){
+  if(modeView==1){
+    mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
+    modeView=0;
+    localStorage.setItem("mode", 0);
+    let body= document.getElementById("modeColor");
+    body.className="dark";
+  }else{
+    mode.innerHTML = `<span> <i class="bi bi-brightness-high-fill lgth"></i></span>`; 
+    modeView=1;
+    localStorage.setItem("mode", 1);
+    let body= document.getElementById("modeColor");
+    body.className="ligth";
+  }
+  console.log(modeView);
+}
+
+
+
