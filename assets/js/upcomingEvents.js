@@ -49,7 +49,7 @@ function checkCard(card) {
  * TODO: Funciones de filtro con checkbox
  */
 function View(cat) {
- 
+  search.value="";
   if (cat.checked) {
     let cardView2 = cardDate.filter(
       (card) => card.category.toLowerCase() == cat.value.toLowerCase()
