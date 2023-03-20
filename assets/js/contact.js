@@ -45,6 +45,3 @@ mode.addEventListener("click",function(){
     }
     console.log(modeView);
   }
-  
-  
-  
