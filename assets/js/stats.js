@@ -65,7 +65,7 @@ async function stats() {
 }
 
 function renderStatistics() {
-  var body = document.getElementById("events");
+  let body = document.getElementById("events");
   let cardsVieWInner = `
         <tr class="  table-borderless   bg-gradient ">
           <th class="border-0    " scope="row" id="ranking">1</th>
@@ -107,9 +107,9 @@ function renderStatistics() {
 }
 
 function datePast(cat) {
-  var ingresos = 0;
-  var asistencia = 0;
-  var capacidad = 0;
+  let ingresos = 0;
+  let asistencia = 0;
+  let capacidad = 0;
   cardAssistance.forEach(element => {
     if (element.category == cat) {
       ingresos += element.assistance * element.price;
@@ -157,14 +157,14 @@ function dateFuture(cat) {
 
 
 function renderTotal() {
-  var body0 = document.getElementById("past");
+  let body0 = document.getElementById("past");
   let cardsVieWInner = ` `;
   setPast.forEach(element => {
     cardsVieWInner += datePast(element);
   });
   body0.innerHTML = cardsVieWInner;
 
-  var body1 = document.getElementById("upcoming");
+  let body1 = document.getElementById("upcoming");
   let cardsVieWInnerupcoming = ` `;
   setUpcoming.forEach(element => {
     cardsVieWInnerupcoming += dateFuture(element);
@@ -216,18 +216,18 @@ function modeChange(){
 }
 
 // function exportTableToExcel(tableID){
-//   var filename=`stat Events ${tableID}.xls`;
-//   var link;
-//   var dataType = 'application/vnd.ms-excel';
-//   var tableSelect = document.getElementById(tableID);
-//   var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');  
+//   let filename=`stat Events ${tableID}.xls`;
+//   let link;
+//   let dataType = 'application/vnd.ms-excel';
+//   let tableSelect = document.getElementById(tableID);
+//   let tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');  
 //    console.log(tableHTML);
 //   link = document.createElement("a");
   
 //   document.body.appendChild(link);
   
 //   if(navigator.msSaveOrOpenBlob){
-//       var blob = new Blob(['ufeff', tableHTML], {
+//       let blob = new Blob(['ufeff', tableHTML], {
 //           type: dataType
 //       });
 //       navigator.msSaveOrOpenBlob( blob, filename);

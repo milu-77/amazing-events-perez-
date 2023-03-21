@@ -39,9 +39,9 @@ function searchCards() {
 }
 
 function checkCard(card) {
-  var str = cardToString(card);
+  let str = cardToString(card);
   regex = new RegExp(search.value.toLowerCase());
-  var result = regex.test(str);
+  let result = regex.test(str);
   return result;
 }
 
@@ -49,13 +49,13 @@ function checkCard(card) {
  * TODO: Funciones de filtro con checkbox
  */
 function View(cat) {
-  search.value="";
-  if (cat.checked) {
+   if (cat.checked) {
     let cardView2 = cardDate.filter(
       (card) => card.category.toLowerCase() == cat.value.toLowerCase()
     );
     pushCardView(cardView2);
     renderCard(cardView);
+    searchCards();
   } else {
     let cardView2 = cardView.filter(
       (card) => card.category.toLowerCase() != cat.value.toLowerCase()
@@ -67,6 +67,7 @@ function View(cat) {
       renderCard(cardDate);
     } else {
       renderCard(cardView);
+      searchCards();
     }
   }
 }
@@ -74,7 +75,7 @@ function View(cat) {
  * TODO: Diduja las Tarjetas
  */
 function renderCard(cardArray) {
-  var body = document.getElementById("rows");
+  let body = document.getElementById("rows");
   let cardsVieWInner = "";
   for (card of cardArray) {
     cardsVieWInner += `<div class="col-12 col-sm-6 col-md-4">
@@ -149,8 +150,8 @@ async function upcomingEvents() {
  * TODO: Render categorias
  */
 function categoryView() {
-  var check = "";
-  var body = document.getElementById("form-search");
+  let check = "";
+  let body = document.getElementById("form-search");
   set.forEach((cat) => {
     check += `<div class="col-3 col-sm-5 col-md-2 col-lg-1 form-check form-check-inline ">
                             <input class="form-check-input me-1 mb-1  " type="checkbox"  value = "${cat}" id="${cat}" name="${cat}">
@@ -166,7 +167,7 @@ function categoryView() {
 }
 
 function cardToString(card) {
-  var retorno =
+  let retorno =
     card._id +
     " " +
     card.name +
@@ -295,7 +296,7 @@ function iniciarVariables() {
 function emptySearch() {
   console.log("empty search");
   let cardsFail = "";
-  var body = document.getElementById("rows");
+  let body = document.getElementById("rows");
   cardsFail += `<div class="col-12 shadow m-1 ">
         <div class="box-img error">
           <img class="card-img " alt="a" src="../assets/img//asd.gif" />

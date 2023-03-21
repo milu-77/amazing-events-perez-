@@ -49,24 +49,29 @@ function checkCard(card) {
  */
 function View(cat) {
    
-   search.value="";
-  if (cat.checked) {
+   if (cat.checked) {
     let cardView2 = cardDate.filter(
       (card) => card.category.toLowerCase() == cat.value.toLowerCase()
     );
+    
     pushCardView(cardView2);
     renderCard(cardView);
+    searchCards();
   } else {
     let cardView2 = cardView.filter(
       (card) => card.category.toLowerCase() != cat.value.toLowerCase()
     );
     cleanView();
     pushCardView(cardView2);
+    searchCards();
+
 
     if (cardView2.length == 0) {
       renderCard(cardDate);
     } else {
       renderCard(cardView);
+      searchCards();
+
     }
   }
 }

@@ -11,13 +11,13 @@ function RandomEvents() {
   fetch('https://mindhub-xj03.onrender.com/api/amazing')
     .then((response) => response.json())
     .then((json) => {
-      var cards = "";
-      var body = document.getElementById("rows");
+      let cards = "";
+      let body = document.getElementById("rows");
 
       console.log(id);
       for (x of json.events) {
         if (id == x._id) {
-          var porc = x.assistance / x.capacity * 100;
+          let porc = x.assistance / x.capacity * 100;
           cards += `
           <div class="card mb-3 shadow m-1">
             <div class="row g-0">
