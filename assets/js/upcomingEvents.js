@@ -32,6 +32,7 @@ function searchCards() {
     let cardView2 = cardDate.filter((card) => checkCard(card) == true);
     if (cardView2.length == 0) {
       emptySearch();
+      searchCards();
     } else {
       renderCard(cardView2);
     }

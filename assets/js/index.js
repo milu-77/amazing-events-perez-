@@ -68,6 +68,7 @@ function View(cat) {
 
     if (cardView2.length == 0) {
       renderCard(cardDate);
+      searchCards();
     } else {
       renderCard(cardView);
       searchCards();
