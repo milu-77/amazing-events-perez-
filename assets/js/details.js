@@ -1,10 +1,7 @@
 const queryString = location.search;
-console.log(queryString);
-const param = new URLSearchParams(queryString);
-console.log(param);
-const id = param.get('id')
-console.log(id);
-let mode = document.getElementById("mode");
+ const param = new URLSearchParams(queryString);
+ const id = param.get('id')
+ let mode = document.getElementById("mode");
 let modeView;
  testMode();
 function RandomEvents() {
@@ -14,8 +11,7 @@ function RandomEvents() {
       let cards = "";
       let body = document.getElementById("rows");
 
-      console.log(id);
-      for (x of json.events) {
+       for (x of json.events) {
         if (id == x._id) {
           let porc = x.assistance / x.capacity * 100;
           cards += `
@@ -60,8 +56,7 @@ function RandomEvents() {
           `;
         }
       }
-      console.log(cards);
-      body.innerHTML = cards;
+       body.innerHTML = cards;
     });
 }
 function testMode(){
@@ -85,8 +80,7 @@ function testMode(){
      let body= document.getElementById("modeColor");
      body.className="dark"
   }
-console.log(localStorage.getItem("mode"));
-}
+ }
 function modeChange(){
   if(modeView==1){
     mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
@@ -101,5 +95,4 @@ function modeChange(){
     let body= document.getElementById("modeColor");
     body.className="ligth";
   }
-  console.log(modeView);
-}
+ }

@@ -27,8 +27,7 @@ function testMode() {
     let body = document.getElementById("modeColor");
     body.className = "dark"
   }
-  console.log(localStorage.getItem("mode"));
-}
+ }
 function modeChange() {
   if (modeView == 1) {
     mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
@@ -43,5 +42,4 @@ function modeChange() {
     let body = document.getElementById("modeColor");
     body.className = "ligth";
   }
-  console.log(modeView);
-}
+ }

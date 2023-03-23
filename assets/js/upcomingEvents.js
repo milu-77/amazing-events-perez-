@@ -82,7 +82,8 @@ function renderCard(cardArray) {
     cardsVieWInner += `<div class="col-12 col-sm-6 col-md-4">
         <div class=" card shadow m-1">
         <div class="  box-img " style="background-image: url('${card.image}')" ><img class="card-img-top "  alt="${card.name}"
-        src="${card.image}"></div>
+        src="${card.image}" onerror="this.onerror=null; 
+        this.src='./assets/img/error.jpg'"></div>
         <div class="card-body">
             <h4 class="card-title text-center mb-2 text-uppercase">${card.name}</h4>
             <p class="card-text  m-4 d-flex align-content-center" >
@@ -141,7 +142,6 @@ async function upcomingEvents() {
       });
 
       renderCard(cardDate);
-      console.log(cardDate);
       categoryView();
       iniciarVariables();
     });
@@ -295,7 +295,6 @@ function iniciarVariables() {
  * TODO: muestra carte de  busqueda vacia
  */
 function emptySearch() {
-  console.log("empty search");
   let cardsFail = "";
   let body = document.getElementById("rows");
   cardsFail += `<div class="col-12 shadow m-1 ">
@@ -327,8 +326,7 @@ function testMode(){
      let body= document.getElementById("modeColor");
      body.className="dark"
   }
-console.log(localStorage.getItem("mode"));
-}
+ }
 function modeChange(){
   if(modeView==1){
     mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
@@ -343,6 +341,5 @@ function modeChange(){
     let body= document.getElementById("modeColor");
     body.className="ligth";
   }
-  console.log(modeView);
-}
+ }
 

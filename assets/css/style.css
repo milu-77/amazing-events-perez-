@@ -188,6 +188,7 @@ th{
     margin-bottom: 0.5em;
     border-collapse: separate;
     /* border-spacing: 0.5em 0.5em; */
+     
 
  
 }
@@ -302,3 +303,20 @@ background-color: #D90469;
     
     background-color:#3b4252;
   }
+  .box{
+    background-color: #F8F9FA;
+    min-height: 40px;
+    border-collapse: separate;
+   
+  }
+.dark .box{
+    background-color: #495057;
+    color: #d8dee9 !important;
+     
+}
+.dark .box h6{
+    background-color: #495057;
+    color: #d8dee9 !important;
+    
+
+}

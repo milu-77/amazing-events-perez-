@@ -64,47 +64,7 @@ async function stats() {
   }
 }
 
-function renderStatistics() {
-  let body = document.getElementById("events");
-  let cardsVieWInner = `
-        <tr class="  table-borderless   bg-gradient ">
-          <th class="border-0    " scope="row" id="ranking">1</th>
-          <td class="border-0 ps-3 text-danger roundedr fs-6 ">${cardAssistance[0].name} </td>
-          <td class="border-0 pe-1 text-danger rounded text-end fs-6 "><b> ( ${((cardAssistance[0].assistance / cardAssistance[0].capacity) * 100).toFixed(2)} %) </b></td>
-
-          <td class="border-0 ps-3 text-success rounded fs-6 ">${cardAssistance[cardAssistance.length - 1].name} </td>
-          <td class="border-0 pe-1 text-success rounded text-end fs-6 "> <b> ( ${((cardAssistance[cardAssistance.length - 1].assistance / cardAssistance[cardAssistance.length - 1].capacity) * 100).toFixed(2)} %)</b></td>
-
-          <td class="border-0 ps-3 text-warning rounded fs-6 ">${capacidad[0].name}</td>
-          <td class="border-0 pe-1 text-warning rounded text-end fs-6 "><b> ( ${capacidad[0].capacity.toLocaleString('en-US')})</b></td>
-
-        </tr>
-      <tr class="  table-borderless     rounded   bg-gradient  ">
-        <th class="border-0" id="ranking" scope="row" >2</th>
-        <td class="border-0 rounded ps-3 text-danger rounded fs-6 ">${cardAssistance[1].name} </td>
-        <td class="border-0 pe-1 text-danger rounded text-end fs-6 "><b> ( ${((cardAssistance[1].assistance / cardAssistance[1].capacity) * 100).toFixed(2)} %) </b></td>
-
-        <td class="border-0 ps-3 text-success rounded fs-6 ">${cardAssistance[cardAssistance.length - 2].name} </td>
-        <td class="border-0 pe-1 text-success rounded text-end fs-6 "> <b> ( ${((cardAssistance[cardAssistance.length - 2].assistance / cardAssistance[cardAssistance.length - 2].capacity) * 100).toFixed(2)} %) </b></td>
-
-        <td class="border-0 ps-3 text-warning rounded fs-6 ">${capacidad[1].name}</td>
-        <td class="border-0 pe-1 text-warning rounded text-end fs-6 " > <b> ( ${capacidad[1].capacity.toLocaleString('en-US')})</b></td>
-
-      </tr>
-      <tr class=" table-borderless   bg-gradient">
-        <th class="border-0 " id="ranking" scope="row">3</th>
-        <td class="border-0 ps-3 text-danger rounded fs-6  " >${cardAssistance[2].name}</td>
-        <td class="border-0 pe-1 text-danger rounded text-end fs-6 "> <b> ( ${((cardAssistance[2].assistance / cardAssistance[2].capacity) * 100).toFixed(2)} %) </b></td>
-
-        <td class="border-0 ps-3 text-success rounded fs-6 " >${cardAssistance[cardAssistance.length - 3].name} </td>
-        <td class="border-0 pe-1 text-success rounded text-end fs-6 " > <b> ( ${((cardAssistance[cardAssistance.length - 3].assistance / cardAssistance[cardAssistance.length - 3].capacity) * 100).toFixed(2)} %) </b></td>
-
-        <td class="border-0 ps-3 text-warning rounded fs-6 ">${capacidad[2].name}</td>
-        <td class="border-0 pe-1 text-warning rounded text-end fs-6 "><b>  ( ${capacidad[2].capacity.toLocaleString('en-US')} )</b></td>
-      </tr>
-        `;
-  body.innerHTML = cardsVieWInner;
-}
+ 
 
 function datePast(cat) {
   let ingresos = 0;
@@ -196,8 +156,7 @@ function testMode(){
      let body= document.getElementById("modeColor");
      body.className="dark"
   }
-console.log(localStorage.getItem("mode"));
-}
+ }
 function modeChange(){
   if(modeView==1){
     mode.innerHTML = `<span> <i class="bi bi-moon-stars drk"></i></span>`;
@@ -212,33 +171,124 @@ function modeChange(){
     let body= document.getElementById("modeColor");
     body.className="ligth";
   }
-  console.log(modeView);
-}
+ }
 
-// function exportTableToExcel(tableID){
-//   let filename=`stat Events ${tableID}.xls`;
-//   let link;
-//   let dataType = 'application/vnd.ms-excel';
-//   let tableSelect = document.getElementById(tableID);
-//   let tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');  
-//    console.log(tableHTML);
-//   link = document.createElement("a");
+function renderStatistics() {
+  let body = document.getElementById("statistics-table");
+  cardsVieWInner =`  
+  <!-- tabla 1 -->
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 pt-1">
+    <div class="row pb-1">
+      <div
+        class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 rounded-pill text-center bg-danger bg-gradient d-flex align-items-center justify-content-center pt-2 pb-1   "
+      >
+        <h6 > Events whith the highest percentage of altendace </h6>
+      </div>
+    </div>
+    `
+for (let index = 0; index < 3; index++) {
+  const element = 3;
+  cardsVieWInner+=`
+  <div class="row p-1 d-flex justify-content-center">
+      <div
+        class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center box rounded-start"
+      >
+        <h6 class = " text-danger">${ index+1} ° </h6>
+      </div>
+      <div
+        class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center box  "
+      >
+        <h6 class = " text-danger">${cardAssistance[index].name} </h6>
+      </div>
+      <div
+        class="col-3 col-sm-4 col-md-4 col-lg-4 col-xl-4 d-flex align-items-center box rounded-end  "
+      >
+        <h6 class =" text-danger">  ( ${((cardAssistance[index].assistance / cardAssistance[index].capacity) * 100).toFixed(2)} %)   </h6>
+      </div>
+  </div>
+  `
   
-//   document.body.appendChild(link);
+}
+  cardsVieWInner += `</div>
+  <!-- tabla 2 -->
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 pt-1">
+    <div class="row p-1">
+      <div
+        class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 rounded-pill text-center bg-success bg-gradient d-flex align-items-center justify-content-center pt-2 pb-1 "
+      >
+        <h6> Events whith the lowest percentage of altendace </h6>
+      </div>
+    </div>`;
+    for (let index = 1; index < 4; index++) {
+      const element = 3;
+      cardsVieWInner+=`
+      <div class="row p-1   d-flex justify-content-center   ">
+      <div
+        class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center box   rounded-start   "
+      >
+        <h6 class = "text-success">${cardAssistance.length - index} ° </h6>
+      </div>
+      <div
+        class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center box   "
+      >
+        <h6 class = "text-success">${cardAssistance[cardAssistance.length - index].name}  </h6>
+      </div>
+      <div
+        class="col-3 col-sm-4 col-md-4 col-lg-4 col-xl-4 d-flex align-items-center box  rounded-end   "
+      >
+        <h6 class = "text-success">  ( ${((cardAssistance[cardAssistance.length - index].assistance / cardAssistance[cardAssistance.length - index].capacity) * 100).toFixed(2)} %)  </h6>
+      </div>
+  </div>
+     ` 
+    }
+
+   cardsVieWInner += `
+    
+  </div>
+  <!-- tabla 3 -->
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 pt-1">
+    <div class="row p-1 ">
+      <div
+        class="capacity col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 rounded-pill  text-center bg-warning bg-gradient d-flex align-items-center justify-content-center pt-2 pb-1 "
+      >
+        <h6>Event whith targe capacity </h6>
+      </div>
+    </div>`
+
+     for (let index = 0; index < 3; index++) {
+      const element = 3;
+      cardsVieWInner+=`
+    
+    <div class="row d-flex justify-content-center p-1">
+      <div
+        class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center box rounded-start "
+      >
+        <h6 class = "text-warning" >${index+1} °</h6>
+      </div>
+      <div
+        class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center box  "
+      >
+        <h6  class =" text-warning" >${capacidad[index].name}</h6>
+      </div>
+      <div
+        class="col-3 col-sm-4 col-md-4 col-lg-4 col-xl-4 d-flex align-items-center box rounded-end "
+      >
+        <h6  class =" text-warning">( <b> ${capacidad[index].capacity.toLocaleString('en-US')}</b> )</h6>
+      </div>
+    </div>`
+     }
+   cardsVieWInner+=`</div>
   
-//   if(navigator.msSaveOrOpenBlob){
-//       let blob = new Blob(['ufeff', tableHTML], {
-//           type: dataType
-//       });
-//       navigator.msSaveOrOpenBlob( blob, filename);
-//   }else{
-//       // Create a link to the file
-//       link.href = 'data:' + dataType + ', ' + tableHTML;
   
-//       // Setting the file name
-//       link.download = filename;
-      
-//       //triggering the function
-//       link.click();
-//   }
-// }
+  `
+;
+  body.innerHTML = cardsVieWInner;
+
+
+
+
+
+
+
+
+}
